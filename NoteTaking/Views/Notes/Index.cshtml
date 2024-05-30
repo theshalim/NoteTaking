@@ -1,0 +1,51 @@
+﻿@model IEnumerable<NoteTaking.Models.Note>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #button {
+        background-color: #04AA6D; /* Green */
+        border: none;
+        color: #2ECC71;
+        padding: 18px 28px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 45px;
+        margin-left: -30px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="col-md-4">
+            </div>
+            <div class="col-6">
+                <a class="nav-link text-dark " id="button" asp-area="" asp-controller="Notes" asp-action="Create">Take a note..</a>
+            </div>
+        </div>
+    </div>
+</div>
+ @foreach (var item in Model)
+        {
+            <div class="card">
+                <div class="card-header font-weight-bold ">
+                    @Html.DisplayFor(modelItem => item.Title)
+                </div>
+                <div class="card-body">
+                    @Html.DisplayFor(modelItem => item.Details)
+                </div>
+                <div class="card-footer float-right">
+                    <a asp-action="Details" class="btn btn-outline-primary" asp-route-id="@item.Id">Details View</a>
+                    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@item.Id">Update Content</a>
+                    <a asp-action="Delete" class="btn btn-outline-danger" asp-route-id="@item.Id">Delete Content</a>
+                </div>
+            </div>
+        }
+    </div>
+
+

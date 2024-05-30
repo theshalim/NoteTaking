@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using NoteTaking.Models;
 
 namespace NoteTaking.Data
 {
@@ -12,5 +13,6 @@ namespace NoteTaking.Data
             : base(options)
         {
         }
+        public DbSet<NoteTaking.Models.Note> Note { get; set; }
     }
 }
